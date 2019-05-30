@@ -1,8 +1,26 @@
 import Vue from 'vue'
+
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import { Icon }  from 'leaflet'
+import 'leaflet/dist/leaflet.css'
+
+delete Icon.Default.prototype._getIconUrl
+
+Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+})
+
+
+Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 new Vue({
